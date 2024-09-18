@@ -93,14 +93,14 @@ header {
 }
 
 #menu-icon {
-    font-size: 1.8rem;
-    z-index: 1001;
-    cursor: pointer;
-    margin-left: 25px;
-    background: var(--hover-color);
-    border-radius: 3px;
-    color: var(--hover-color);
-    display: n;
+  font-size: 1.8rem;
+  z-index: 10001;
+  cursor: pointer;
+  margin-left: 25px;
+  background: var(--hover-color);
+  border-radius: 3px;
+  color: var(--secon-bg-color);
+  display: none;
 }
 
 
