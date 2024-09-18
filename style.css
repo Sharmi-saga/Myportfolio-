@@ -31,17 +31,16 @@
 
 
 ::-webkit-scrollbar {
-  height: 0;
-  width: .5rem;
+  width: 0.5rem; /* Adjusts the width of the scrollbar */
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--secon-bg-color);
+  background: var(--secon-bg-color); /* Track background color */
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--hover-color);
-  border-radius: 5rem;
+  background: #12f7ff; /* Scrollbar thumb color */
+  border-radius: .5rem; /* Makes the scrollbar thumb rounded */
 }
 
 
