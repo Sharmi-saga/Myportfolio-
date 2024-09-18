@@ -39,3 +39,32 @@ let changeText = () => {
 
 changeText();
 setInterval(changeText,3000)
+
+
+
+
+//skill section
+const circles = document.querySelectorAll('.circle');
+
+circles.forEach(elem => {
+  const dots = parseInt(elem.getAttribute("data-dots"), 10);
+  const marked = parseInt(elem.getAttribute("data-percent"), 10);
+  const percent = Math.floor(dots * marked / 100);
+  const rotate = 360 / dots;
+  let points = "";
+
+  for (let i = 0; i < dots; i++) {
+    points += `<div class="points" style="--i:${i}; --rot:${rotate}deg"></div>`;
+  }
+
+  elem.innerHTML = points;
+
+  const pointsMarked = elem.querySelectorAll('.points');
+  for (let i = 0; i < percent; i++) {
+    pointsMarked[i].classList.add('marked');
+  }
+});
+
+
+//portpolio 
+var mixer = mixitup('.portfolio-gallery');
