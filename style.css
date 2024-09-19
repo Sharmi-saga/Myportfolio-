@@ -12,7 +12,7 @@
 :root {
     --text-color: #f5f5f5;
     --hover-color: #12f7ff;
-    --bg-color: #250821;
+    --bg-color: #2e0c26;
     --secon-bg-color: #292e33;
     --big-font: 2.5rem;
     --norma-font: 2rem;
@@ -51,11 +51,22 @@ body {
 }
 
 header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
-    padding: 20px 10%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  border-bottom: 1px solid transparent;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 20px 10%;
+}
+
+header.sticky {
+  background: var(--bg-color);
+  border-bottom: 1px solid var(--secon-bg-color);
+  padding: 12px 10%;
 }
 
 .logo {
@@ -74,8 +85,12 @@ header {
     color: var(--text-color);
     font-weight: 500;
     padding: 10px 20px;
-
     text-decoration: none;
+    animation: slideAnimation 1s ease forwards;
+    animation-delay: calc(.3s * var(--i));
+    opacity: 0;
+    display: inline-block;
+
 
 }
 
@@ -92,6 +107,10 @@ header {
         0 0 150px rgba(18, 247, 255, 0.3);
 }
 
+.navlist a.active {
+  color: var(--hover-color);
+}
+
 #menu-icon {
   font-size: 1.8rem;
   z-index: 10001;
@@ -103,9 +122,13 @@ header {
   display: none;
 }
 
+.log{
+  color: #12f7ff;
+}
 
 span {
-    color: var(--hover-color);
+ color: #12f7ff;
+
 }
 
 section {
@@ -369,10 +392,11 @@ section {
     max-width: 400px;
     height: auto;
 }
+
 .about-content span {
     color: #dfdfde;
-    font-size: .8rem;
-    font-weight: 200;
+    font-size: .9rem;
+    font-weight: 500;
     letter-spacing: 2px;
     text-transform: uppercase;
 }
@@ -463,7 +487,9 @@ section {
 
 .main-text h2 {
     font-weight: 700;
-    font-size: var(--normal-font);  
+    font-size: 25px;  
+
+    
 
 }
 
@@ -770,6 +796,25 @@ section {
     }
   }
   
+  @keyframes slideAnimation {
+    0% {
+      opacity: 0;
+      transform: translateY(100px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+
+
+
+
+
+
+
+
   /* project section*/
 
 
@@ -778,7 +823,7 @@ section {
   text-align: center;
 }
 
-.filter-buttons .btn {
+.filter-buttons .button {
   background: none;
   outline: none;
   border: none;
@@ -952,3 +997,150 @@ footer a i {
 
 }
 
+.footerbtn{
+  color: black;
+  text-decoration: none;
+}
+
+@media (max-width: 991px) {
+  header,
+  header.sticky {
+    padding: 15px 5%;
+  }
+
+  footer {
+    padding: 15px 5%;
+  }
+
+  section {
+    padding: 50px 5%;
+  }
+
+  .navlist a {
+    padding: 8px 15px;
+  }
+  :root {
+    --big-font: 2.2rem;
+    --normal-font: 1.8rem;
+    --neon-box-shadow: 0 0.8rem #12f7ff;
+    --h2-font: 3rem;
+  }
+  
+  .home-content {
+    margin-top: 5rem;
+  }
+  
+  .social-icons {
+    margin-top: 2rem;  
+  
+  }
+}
+
+
+@media (max-width: 768px) {
+  #menu-icon {
+    display: block;
+    transition: all .4s ease;
+  }
+
+  .navlist {
+    display: flex;
+    position: absolute;
+    top: -1000px;
+    right: 0;
+    left: 0;
+    flex-direction: column;
+    background: var(--bg-color);
+    text-align: left;  
+    padding: 0 5%;
+    transition: all .4s ease;  
+
+  }
+
+  .navlist a {
+    display: block;
+    padding-bottom: 1rem;
+    font-size: 1rem;
+  }
+
+  .navlist.open {
+    top: 100%;
+  }
+
+.home {
+  grid-template-columns: 1fr;
+}
+
+.home-image {
+  margin-bottom: 5rem;
+}
+
+.liquid-shape {
+  width: 80%;
+  left: 10%;
+  top: 13%;
+}
+
+.about {
+  flex-direction: column-reverse;
+}
+
+.skill-main {
+  grid-template-columns: 1fr;
+}
+
+.filter-buttons {
+  margin: 2.5rem 0;
+}
+
+}
+
+@media (max-width: 420px) {
+  html {
+    font-size: 80%;
+  }
+
+  footer p {
+    font-size: .6rem;
+  }
+
+  .filter-buttons .button   {
+    font-size: .8rem;
+  }
+
+  .img-about img {
+    width: 300px;
+  }
+
+  .info-about1, .info-about2, .info-about3 {
+    display: none;  
+  }
+  .img-about p{
+    font-size: 1rem;
+  }
+
+
+}
+
+
+
+.scroll-scale {
+  opacity: 0;
+  transform: scale(.9);
+  transition: all 2s;
+}
+.show-items {
+  opacity: 1;
+  transform: translateX(0);
+}
+.scroll-bottom {
+  opacity: 0;
+  transform: translateY(300px);
+  transition: 3s;
+}
+
+.scroll-top {
+  opacity: 0;
+  transform: translateY(-300px);
+  transition: 3s;
+}
